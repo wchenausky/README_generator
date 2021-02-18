@@ -1,14 +1,26 @@
 {
   "name": "static-site",
   "version": "1.0.0",
-  "description": "",
+  "description": "An application that generates a README file based off of users input",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "William Chenausky",
+  "license": "MIT",
   "dependencies": {
     "inquirer": "^6.5.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wchenausky/README_generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wchenausky/README_generator/issues"
+  },
+  "homepage": "https://github.com/wchenausky/README_generator#readme",
+  "keywords": [
+    "README"
+  ]
 }
