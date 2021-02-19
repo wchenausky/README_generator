@@ -2,19 +2,19 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown");
 const makeREADME = (answers) =>
   `
   # ${answers.title}
   [![License: ${answers.license}]
+  
   ${answers.description}
 
   ## Table of Contents
-  * [Installation](#installation)
+  * [Installation](#Installation)
   * [Usage](#usage)
   * [Contribution](#Contribution)
   * [Tests](#Tests)
-  * [Questions](Questions)
+  * [Questions](#Questions)
 
   ## Installation
   ${answers.install}
@@ -22,7 +22,7 @@ const makeREADME = (answers) =>
   ## Usage
   ${answers.usage}
 
-  ##Contribution
+  ## Contribution
   ${answers.contribution}
 
   ## Tests
@@ -95,12 +95,12 @@ inquirer.prompt([
 
 });
                                                         
-// TODO: Create a function to initialize app
-function init() {
-  inquirer.prompt(questions).then((answers) => {
-    console.log("testing questions");
-  });
-}
+// // TODO: Create a function to initialize app
+// function init() {
+//   inquirer.prompt(questions).then((answers) => {
+//     console.log("testing questions");
+//   });
+// }
 
-// Function call to initialize app
-init();
+// // Function call to initialize app
+// init();
