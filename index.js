@@ -3,21 +3,20 @@ const inquirer = require("inquirer");
 const fs = require("fs");
 const path = require("path");
 const generateMarkdown = require("./utils/generateMarkdown");
-const generateREADME = (answers) =>
+const makeREADME = (answers) =>
   `
   # ${answers.title}
-  [![License: ${answers.license}](https://img.shields.io/badge/License-${answers.license.split('-')[0]}-green)](https://opensource.org/licenses/${answers.license})
-
+  [![License: ${answers.license}]
   ${answers.description}
 
   ## Table of Contents
-  [Installation](#installation)
-  [Usage](#usage)
-  [Contribution](#Contribution)
-  [Tests](#Tests)
-  [Questions](Questions)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Contribution](#Contribution)
+  * [Tests](#Tests)
+  * [Questions](Questions)
 
-  ## INstallation
+  ## Installation
   ${answers.install}
 
   ## Usage
@@ -30,12 +29,13 @@ const generateREADME = (answers) =>
   ${answers.test}
 
   ## Questions
+  If you have questions please feel free to reach out to me via
   Email: [${answers.email}](${answers.email})
-  
+  or
   My GitHub Page: [github.com/${answers.gitHub}](github.com/${answers.gitHub})
   `;
 // TODO: Create an array of questions for user input
-inquierer.prompt([
+inquirer.prompt([
   {
     type: "input",
     name: "title",
@@ -68,6 +68,7 @@ inquierer.prompt([
 },
 {
   type: 'list',
+  name: 'license',
   choices: ['MIT', 'Apache', 'EPL-2.0', 'GPLv2', 'GPLv3'],
   message: "Which license woud you like to use for your README file?"
 },
@@ -83,15 +84,17 @@ inquierer.prompt([
 },
 
 ]).then((answers) => {
-  const htmlPageContent = generateHTML(answers);
+  const createReadme = makeREADME(answers);
  
-  fs.writeFile('index.html', htmlPageContent, (err) =>
-  err ? console.log(err) : console.log('Successfully created index.html!')
-);
-});
+  // TODO: Create a function to write README file
+  fs.writeFile('README.md', createReadme, (err) =>
+  err ? console.log(err) : console.log('README has been sucessfully created!')
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}                                                          
+  
+);
+
+});
+                                                        
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((answers) => {
