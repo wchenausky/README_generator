@@ -5,8 +5,9 @@ const path = require("path");
 const makeREADME = (answers) =>
   `
   # ${answers.title}
-  [![License: ${answers.license}]
-  
+  ![GitHub License](https://img.shields.io/badge/license-${answers.license}-blue.svg) <br>
+
+
   ${answers.description}
 
   ## Table of Contents
